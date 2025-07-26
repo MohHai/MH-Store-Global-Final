@@ -1,1 +1,3 @@
-// Real code for globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
