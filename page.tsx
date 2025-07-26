@@ -1,20 +1,53 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ProductCard from '../components/ProductCard';
+'use client';
 
-export default function Page() {
+import React, { useEffect, useState } from 'react';
+import ProductCard from '@/components/ProductCard';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { getAmazonProducts } from '@/lib/amazon';
+import { getTradalProducts } from '@/lib/tradal';
+
+export default function HomePage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const amazon = await getAmazonProducts('electronics');
+        const tradal = await getTradalProducts('gadgets');
+        setProducts([...amazon, ...tradal]);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
-    <main>
+    <div className="min-h-screen flex flex-col bg-white text-black">
       <Header />
-      <section className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <ProductCard
-          title="AI Smartwatch"
-          image="https://images.unsplash.com/photo-1588776814546-ec7c835c8d5b"
-          price={299}
-          description="A revolutionary AI-powered smartwatch with health tracking."
-        />
-      </section>
+
+      <main className="flex-1 px-6 md:px-12 py-8">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 text-blue-800">
+          مرحبًا بك في M.H Store Global 🌍
+        </h1>
+
+        {loading ? (
+          <p className="text-center text-gray-600">جاري تحميل المنتجات...</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {products.map((product: any, index) => (
+              <ProductCard key={index} product={product} />
+            ))}
+          </div>
+        )}
+      </main>
+
       <Footer />
-    </main>
+    </div>
   );
-}// Real code for page.tsx
+        }
