@@ -1,0 +1,1 @@
+// tradal.ts content for lib

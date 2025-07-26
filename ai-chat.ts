@@ -1,0 +1,1 @@
+// ai-chat.ts content for scripts

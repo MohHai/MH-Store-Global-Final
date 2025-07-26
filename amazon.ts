@@ -1,0 +1,1 @@
+// amazon.ts content for lib

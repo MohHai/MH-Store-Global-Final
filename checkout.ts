@@ -1,0 +1,1 @@
+// checkout.ts content for scripts
