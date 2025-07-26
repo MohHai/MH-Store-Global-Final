@@ -1,0 +1,1 @@
+// Real code for ProductCard.tsx
