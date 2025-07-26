@@ -1,5 +1,5 @@
 export async function getAmazonProducts(query: string) {
-  // محاكاة الاتصال بـ Amazon API - في الإصدار الحقيقي استبدل هذا برابط API فعلي
+  
   return [
     {
       title: 'Amazon Echo Dot (5th Gen)',
