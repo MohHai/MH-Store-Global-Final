@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #f8f9fa; /* مريح وهادئ */
+  --color-text: #1a1a1a;       /* وضوح عالي بدون إزعاج */
+  --color-primary: #d4af37;    /* ذهبي فاخر */
+  --color-secondary: #ffffff;
+  --color-accent: #ff6f61;     /* برتقالي مائل للأحمر - يحفّز الشراء */
+  --color-hover: #c49a2e;      /* ذهبي أغمق عند التحويم */
+  --color-sale: #e63946;       /* أحمر عاطفي لعروض التخفيض */
+  --color-cart: #4caf50;       /* أخضر مشجّع ومطمئن */
+  --color-outline: #ddd;
+}
+
+body {
+  @apply bg-[var(--color-background)] text-[var(--color-text)] font-sans;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  @apply text-[var(--color-primary)] transition-colors duration-200;
+}
+a:hover {
+  @apply text-[var(--color-hover)];
+}
+
+button {
+  @apply font-medium px-4 py-2 rounded-2xl shadow-md transition-all;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+.button-primary:hover {
+  background-color: var(--color-hover);
+}
+
+.button-buy {
+  background-color: var(--color-accent);
+  color: white;
+}
+.button-buy:hover {
+  filter: brightness(90%);
+}
+
+.button-cart {
+  background-color: var(--color-cart);
+  color: white;
+}
+.button-cart:hover {
+  filter: brightness(85%);
+}
+
+.sale-badge {
+  background-color: var(--color-sale);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+}
+
+input,
+select,
+textarea {
+  @apply border border-[var(--color-outline)] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)];
+  }
