@@ -1,5 +1,3 @@
-// wallet.ts
-
 import { supabase } from './supabaseClient';
 
 // إنشاء محفظة جديدة لمستخدم (تُستخدم مرة واحدة عند تسجيل المستخدم)
